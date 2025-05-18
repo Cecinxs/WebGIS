@@ -3,13 +3,13 @@ require([
   "esri/views/MapView"
 ], function(Map, MapView) {
   const map = new Map({
-    basemap: "topo-vector"
+    basemap: "osm-3d"
   });
 
   const view = new MapView({
     container: "viewDiv", // onde o mapa será renderizado
     map: map,
     center: [-49.19982825513535, -20.282408807308848], // Fronteira
-    zoom: 10
+    zoom: 5
   });
 });
