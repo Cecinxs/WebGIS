@@ -10,6 +10,6 @@ require([
     container: "viewDiv", // onde o mapa será renderizado
     map: map,
     center: [-49.19982825513535, -20.282408807308848], // Fronteira
-    zoom: 18
+    zoom: 15
   });
 });
