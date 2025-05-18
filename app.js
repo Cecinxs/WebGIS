@@ -9,7 +9,7 @@ require([
   const view = new MapView({
     container: "viewDiv", // onde o mapa será renderizado
     map: map,
-    center: [-46.625290, -23.533773], // São Paulo
+    center: [-20.282408807308848, -49.19982825513535], // Fronteira
     zoom: 10
   });
 });
