@@ -1,12 +1,14 @@
 require([
   "esri/Map",
   "esri/views/MapView",
-  "esri/widgets/Search"
-], function(Map, MapView, Search) {
+  "esri/widgets/Search",
+  "esri/widgets/BasemapGallery",
+  "esri/widgets/Expand"
+], function(Map, MapView, Search, BasemapGallery, Expand) {
   
   // 1. Criar o mapa
   const map = new Map({
-    basemap: "osm"
+    basemap: "hybrid"
   });
 
   // 2. Criar a view
@@ -26,6 +28,20 @@ require([
 
   // 4. Adicionar à interface
   view.ui.add(searchWidget, "top-right");
+
+  const basemapGallery = new BasemapGallery({
+    view: view
+  });
+
+  const bgExpand = new Expand({
+    view: view,
+    content: basemapGallery,
+    expandIconClass: "esri-icon-basemap", // ícone padrão de mapa base
+    expandTooltip: "Escolher mapa base"
+  });
+
+  // 6. Adicionar à interface
+  view.ui.add(bgExpand, "top-right");
 
   // 5. Debug (verifique no console F12)
   view.when(function() {
