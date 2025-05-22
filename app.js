@@ -3,8 +3,9 @@ require([
   "esri/views/MapView",
   "esri/widgets/Search",
   "esri/widgets/BasemapGallery",
-  "esri/widgets/Expand"
-], function(Map, MapView, Search, BasemapGallery, Expand) {
+  "esri/widgets/Expand",
+  "esri/widgets/Home"
+], function(Map, MapView, Search, BasemapGallery, Expand, Home) {
   
   // 1. Criar o mapa
   const map = new Map({
@@ -15,8 +16,8 @@ require([
   const view = new MapView({
     container: "viewDiv",
     map: map,
-    center: [-49.19982825513535, -20.282408807308848],
-    zoom: 15
+    center: [-49.1587814990684, -20.236144024771797],
+    zoom: 18
   });
 
   // 3. Criar e adicionar o widget Search
@@ -42,6 +43,12 @@ require([
 
   // 6. Adicionar à interface
   view.ui.add(bgExpand, "top-right");
+
+  const homeWidget = new Home({
+    view: view
+  });
+
+  view.ui.add(homeWidget, "top-left");
 
   // 5. Debug (verifique no console F12)
   view.when(function() {
